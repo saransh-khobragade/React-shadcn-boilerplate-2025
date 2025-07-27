@@ -1,6 +1,6 @@
-# React + TypeScript + Vite + Tailwind CSS + ESLint + Prettier
+# React + TypeScript + Vite + Tailwind CSS + ESLint + Prettier + shadcn/ui
 
-A production-ready React boilerplate with strict TypeScript configuration, comprehensive ESLint rules, Prettier formatting, and modern tooling.
+A production-ready React boilerplate with strict TypeScript configuration, comprehensive ESLint rules, Prettier formatting, modern tooling, and shadcn/ui components.
 
 ## 🚀 Quick Start
 
@@ -30,6 +30,19 @@ yarn format:check
 yarn type-check
 
 ## 🔧 Features
+
+### **✅ shadcn/ui Components**
+
+- **Modern UI Components** - Beautiful, accessible components
+- **Tailwind CSS Integration** - Seamless styling with utility classes
+- **TypeScript Support** - Fully typed components
+- **Customizable Design** - Easy theming and customization
+- **Dark Mode Ready** - Built-in dark mode support
+- **Accessible** - WCAG compliant components
+- **Theme Configuration** - Dynamic theme switching and customization
+- **Component Showcase** - Interactive demo of all available components
+- **Persistent Settings** - Theme preferences saved to localStorage
+- **System Theme Detection** - Automatic light/dark mode switching
 
 ### **✅ TypeScript Configuration**
 
@@ -229,7 +242,10 @@ Valid commit message formats:
 ├── src/
 │   ├── App.tsx          # Main React component
 │   ├── main.tsx         # Application entry point
-│   ├── index.css        # Global styles with Tailwind
+│   ├── index.css        # Global styles with Tailwind + shadcn/ui
+│   ├── components/      # shadcn/ui components
+│   │   └── ui/          # UI component library
+│   ├── lib/             # Utility functions
 │   └── assets/          # Static assets
 ├── public/              # Public assets
 ├── .husky/              # Git hooks configuration
@@ -237,9 +253,112 @@ Valid commit message formats:
 ├── tsconfig.json        # TypeScript configuration
 ├── eslint.config.js     # ESLint configuration
 ├── .prettierrc          # Prettier configuration
+├── components.json      # shadcn/ui configuration
 ├── vite.config.ts       # Vite configuration with Tailwind CSS
 └── package.json         # Project dependencies and scripts
 ```
+
+## 🎨 Using shadcn/ui Components
+
+### Interactive Demo
+
+The project includes a comprehensive component showcase and theme configuration panel:
+
+1. **Start the development server**: `yarn dev`
+2. **Open the app** in your browser
+3. **Click "Show Config"** to open the theme configuration panel
+4. **Explore components** in the interactive showcase
+5. **Customize themes** with real-time preview
+
+### Adding New Components
+
+To add new shadcn/ui components to your project:
+
+```bash
+# Add a specific component
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add input
+npx shadcn@latest add dialog
+
+# Add multiple components at once
+npx shadcn@latest add button card input dialog
+```
+
+### Using Components
+
+Import and use components in your React components:
+
+```tsx
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+function MyComponent() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>My Card</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Button>Click me</Button>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+### Available Components
+
+The project includes 12+ components by default. You can add more components from the [shadcn/ui registry](https://ui.shadcn.com/docs/components):
+
+#### Form Components
+
+- **Button** - Various button styles and variants
+- **Input** - Text input fields
+- **Label** - Form labels
+- **Select** - Dropdown select menus
+- **Textarea** - Multi-line text input
+- **Checkbox** - Checkbox inputs
+- **Switch** - Toggle switches
+
+#### Layout Components
+
+- **Card** - Content containers with header and content sections
+- **Tabs** - Tabbed interface components
+
+#### Feedback Components
+
+- **Sonner** - Toast notifications (replaces deprecated Toast)
+
+### Theme Configuration
+
+The project includes a powerful theme configuration system:
+
+```tsx
+import { useTheme } from '@/hooks/use-theme';
+
+function MyComponent() {
+  const { config, setTheme, setColorScheme } = useTheme();
+
+  return (
+    <div>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+      <button onClick={() => setColorScheme('blue')}>Blue Theme</button>
+    </div>
+  );
+}
+```
+
+### Customization
+
+Components can be customized by:
+
+- Modifying CSS variables in `src/index.css`
+- Editing component files directly in `src/components/ui/`
+- Using the theme configuration panel
+- Creating custom variants and styles
+
+For detailed configuration options, see [CONFIGURATION.md](./CONFIGURATION.md).
 
 ## 🧪 Testing the Setup
 
