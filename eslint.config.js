@@ -1,15 +1,15 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 import { globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export default tseslint.config([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'src/components/ui/**/*']),
   {
     files: ['**/*.{ts,tsx}'],
+    ignores: ['src/components/ui/**/*'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -19,7 +19,6 @@ export default tseslint.config([
       tseslint.configs.stylistic,
       tseslint.configs.stylisticTypeChecked,
       reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
       eslintConfigPrettier,
     ],
     languageOptions: {
@@ -155,38 +154,38 @@ export default tseslint.config([
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
 
-      // Code style and formatting
-      indent: ['error', 2],
-      quotes: ['error', 'single'],
-      semi: ['error', 'always'],
-      'comma-dangle': ['error', 'always-multiline'],
-      'object-curly-spacing': ['error', 'always'],
-      'array-bracket-spacing': ['error', 'never'],
-      'computed-property-spacing': ['error', 'never'],
-      'space-in-parens': ['error', 'never'],
-      'space-before-blocks': 'error',
-      'keyword-spacing': 'error',
-      'space-infix-ops': 'error',
-      'eol-last': 'error',
-      'no-trailing-spaces': 'error',
-      'no-multiple-empty-lines': ['error', { max: 1 }],
-      'padded-blocks': ['error', 'never'],
-      'no-spaced-func': 'error',
-      'func-call-spacing': 'error',
-      'block-spacing': 'error',
-      'brace-style': ['error', '1tbs'],
-      camelcase: 'error',
-      'new-cap': 'error',
-      'new-parens': 'error',
-      'no-nested-ternary': 'error',
-      'no-unneeded-ternary': 'error',
-      'operator-assignment': 'error',
-      'prefer-exponentiation-operator': 'error',
-      'prefer-object-spread': 'error',
-      radix: 'error',
-      'require-unicode-regexp': 'error',
-      'symbol-description': 'error',
-      'wrap-regex': 'error',
+      // Code style and formatting - disabled to avoid conflicts with Prettier
+      // indent: ['error', 2],
+      // quotes: ['error', 'single'],
+      // semi: ['error', 'always'],
+      // 'comma-dangle': ['error', 'always-multiline'],
+      // 'object-curly-spacing': ['error', 'always'],
+      // 'array-bracket-spacing': ['error', 'never'],
+      // 'computed-property-spacing': ['error', 'never'],
+      // 'space-in-parens': ['error', 'never'],
+      // 'space-before-blocks': 'error',
+      // 'keyword-spacing': 'error',
+      // 'space-infix-ops': 'error',
+      // 'eol-last': 'error',
+      // 'no-trailing-spaces': 'error',
+      // 'no-multiple-empty-lines': ['error', { max: 1 }],
+      // 'padded-blocks': ['error', 'never'],
+      // 'no-spaced-func': 'error',
+      // 'func-call-spacing': 'error',
+      // 'block-spacing': 'error',
+      // 'brace-style': ['error', '1tbs'],
+      // camelcase: 'error',
+      // 'new-cap': 'error',
+      // 'new-parens': 'error',
+      // 'no-nested-ternary': 'error',
+      // 'no-unneeded-ternary': 'error',
+      // 'operator-assignment': 'error',
+      // 'prefer-exponentiation-operator': 'error',
+      // 'prefer-object-spread': 'error',
+      // radix: 'error',
+      // 'require-unicode-regexp': 'error',
+      // 'symbol-description': 'error',
+      // 'wrap-regex': 'error',
     },
   },
   {

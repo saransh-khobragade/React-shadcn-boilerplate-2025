@@ -1,10 +1,10 @@
 # React + TypeScript + Vite + Tailwind CSS + ESLint + Prettier + shadcn/ui
 
-A production-ready React boilerplate with strict TypeScript configuration, comprehensive ESLint rules, Prettier formatting, modern tooling, and shadcn/ui components.
+A production-ready React boilerplate with strict TypeScript configuration, comprehensive ESLint rules, Prettier formatting, modern tooling, shadcn/ui components, and a complete authentication and user management system.
 
 ## 🚀 Quick Start
 
-````bash
+```bash
 # Install dependencies
 yarn install
 
@@ -28,8 +28,30 @@ yarn format:check
 
 # Type checking
 yarn type-check
+```
 
-## 🔧 Features
+## 🎯 Features
+
+### **✅ Authentication System**
+
+- **Login Form** - Email and password authentication with validation
+- **Signup Form** - User registration with name, email, password, and confirmation
+- **Form Validation** - Using Zod schema validation with React Hook Form
+- **Persistent Sessions** - User sessions stored in localStorage
+- **Loading States** - Proper loading indicators during authentication
+- **Error Handling** - Comprehensive error states and user feedback
+
+### **✅ User Management Dashboard**
+
+- **User List** - Displays all registered users in a clean table format
+- **Statistics** - Shows total users, new users this week, and recently updated users
+- **CRUD Operations**:
+  - ✅ **Create** - Add new users with a modal form
+  - ✅ **Read** - View all users in a responsive table
+  - ✅ **Update** - Edit existing user information
+  - ✅ **Delete** - Remove users with confirmation
+- **Responsive Design** - Works on desktop and mobile
+- **Data Persistence** - Local storage with mock API simulation
 
 ### **✅ shadcn/ui Components**
 
@@ -75,6 +97,167 @@ yarn type-check
 - **Recommended extensions** - Auto-installation prompts
 - **TypeScript IntelliSense** - Enhanced development experience
 
+## 🔐 Authentication & User Management
+
+### **How to Use**
+
+1. **Start the Application**: Run `yarn dev` and open `http://localhost:5173`
+2. **Sign Up**: Create a new account with your details
+3. **Login**: Use your credentials to access the dashboard
+4. **Manage Users**:
+   - View all users in the table
+   - Add new users with the "Add User" button
+   - Edit users by clicking the "Edit" button
+   - Delete users with the "Delete" button
+5. **Logout**: Use the logout button in the header
+
+### **Features**
+
+- 🔐 **Secure Authentication** with form validation
+- 📊 **Dashboard Analytics** with user statistics
+- 🎨 **Modern UI** with shadcn/ui components
+- 📱 **Responsive Design** for all devices
+- 💾 **Data Persistence** using localStorage
+- ⚡ **Fast Performance** with React 19 and Vite
+
+## 🏗️ Project Structure
+
+```
+├── src/
+│   ├── App.tsx                    # Main React component with auth routing
+│   ├── main.tsx                   # Application entry point
+│   ├── index.css                  # Global styles with Tailwind + shadcn/ui
+│   ├── components/
+│   │   ├── auth/                  # Authentication components
+│   │   │   ├── AuthPage.tsx       # Main auth page
+│   │   │   ├── LoginForm.tsx      # Login form
+│   │   │   └── SignupForm.tsx     # Signup form
+│   │   ├── dashboard/             # Dashboard components
+│   │   │   ├── Dashboard.tsx      # Main dashboard
+│   │   │   └── UserForm.tsx       # User create/edit form
+│   │   └── ui/                    # shadcn/ui components
+│   ├── contexts/
+│   │   └── AuthContext.tsx        # Authentication context
+│   ├── services/
+│   │   └── userService.ts         # User management service
+│   ├── types/
+│   │   ├── auth.ts                # Authentication types
+│   │   └── user.ts                # User management types
+│   ├── lib/                       # Utility functions
+│   └── assets/                    # Static assets
+├── public/                        # Public assets
+├── .husky/                        # Git hooks configuration
+├── .vscode/                       # VS Code settings
+├── tsconfig.json                  # TypeScript configuration
+├── eslint.config.js               # ESLint configuration
+├── .prettierrc                    # Prettier configuration
+├── components.json                # shadcn/ui configuration
+├── vite.config.ts                 # Vite configuration with Tailwind CSS
+└── package.json                   # Project dependencies and scripts
+```
+
+## 🎨 Using shadcn/ui Components
+
+### Interactive Demo
+
+The project includes a comprehensive component showcase and theme configuration panel:
+
+1. **Start the development server**: `yarn dev`
+2. **Open the app** in your browser
+3. **Click "Show Config"** to open the theme configuration panel
+4. **Explore components** in the interactive showcase
+5. **Customize themes** with real-time preview
+
+### Adding New Components
+
+To add new shadcn/ui components to your project:
+
+```bash
+# Add a specific component
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add input
+npx shadcn@latest add dialog
+
+# Add multiple components at once
+npx shadcn@latest add button card input dialog
+```
+
+### Using Components
+
+Import and use components in your React components:
+
+```tsx
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+function MyComponent() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>My Card</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Button>Click me</Button>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+### Available Components
+
+The project includes 12+ components by default. You can add more components from the [shadcn/ui registry](https://ui.shadcn.com/docs/components):
+
+#### Form Components
+
+- **Button** - Various button styles and variants
+- **Input** - Text input fields
+- **Label** - Form labels
+- **Select** - Dropdown select menus
+- **Textarea** - Multi-line text input
+- **Checkbox** - Checkbox inputs
+- **Switch** - Toggle switches
+
+#### Layout Components
+
+- **Card** - Content containers with header and content sections
+- **Tabs** - Tabbed interface components
+
+#### Feedback Components
+
+- **Sonner** - Toast notifications (replaces deprecated Toast)
+
+### Theme Configuration
+
+The project includes a powerful theme configuration system:
+
+```tsx
+import { useTheme } from '@/hooks/use-theme';
+
+function MyComponent() {
+  const { config, setTheme, setColorScheme } = useTheme();
+
+  return (
+    <div>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+      <button onClick={() => setColorScheme('blue')}>Blue Theme</button>
+    </div>
+  );
+}
+```
+
+### Customization
+
+Components can be customized by:
+
+- Modifying CSS variables in `src/index.css`
+- Editing component files directly in `src/components/ui/`
+- Using the theme configuration panel
+- Creating custom variants and styles
+
+For detailed configuration options, see [CONFIGURATION.md](./CONFIGURATION.md).
+
 ## 🔧 ESLint on Save Setup
 
 This project is configured to show ESLint errors and warnings on save in VS Code with **STRICT** linting rules. The setup includes:
@@ -112,7 +295,7 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension ms-vscode.vscode-typescript-next
 code --install-extension bradlc.vscode-tailwindcss
 code --install-extension ms-vscode.vscode-json
-````
+```
 
 ### 🔍 Troubleshooting ESLint Issues
 
@@ -236,130 +419,6 @@ Valid commit message formats:
 - `test: add tests`
 - `chore: maintenance tasks`
 
-## 🎯 Project Structure
-
-```
-├── src/
-│   ├── App.tsx          # Main React component
-│   ├── main.tsx         # Application entry point
-│   ├── index.css        # Global styles with Tailwind + shadcn/ui
-│   ├── components/      # shadcn/ui components
-│   │   └── ui/          # UI component library
-│   ├── lib/             # Utility functions
-│   └── assets/          # Static assets
-├── public/              # Public assets
-├── .husky/              # Git hooks configuration
-├── .vscode/             # VS Code settings
-├── tsconfig.json        # TypeScript configuration
-├── eslint.config.js     # ESLint configuration
-├── .prettierrc          # Prettier configuration
-├── components.json      # shadcn/ui configuration
-├── vite.config.ts       # Vite configuration with Tailwind CSS
-└── package.json         # Project dependencies and scripts
-```
-
-## 🎨 Using shadcn/ui Components
-
-### Interactive Demo
-
-The project includes a comprehensive component showcase and theme configuration panel:
-
-1. **Start the development server**: `yarn dev`
-2. **Open the app** in your browser
-3. **Click "Show Config"** to open the theme configuration panel
-4. **Explore components** in the interactive showcase
-5. **Customize themes** with real-time preview
-
-### Adding New Components
-
-To add new shadcn/ui components to your project:
-
-```bash
-# Add a specific component
-npx shadcn@latest add button
-npx shadcn@latest add card
-npx shadcn@latest add input
-npx shadcn@latest add dialog
-
-# Add multiple components at once
-npx shadcn@latest add button card input dialog
-```
-
-### Using Components
-
-Import and use components in your React components:
-
-```tsx
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-function MyComponent() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>My Card</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button>Click me</Button>
-      </CardContent>
-    </Card>
-  );
-}
-```
-
-### Available Components
-
-The project includes 12+ components by default. You can add more components from the [shadcn/ui registry](https://ui.shadcn.com/docs/components):
-
-#### Form Components
-
-- **Button** - Various button styles and variants
-- **Input** - Text input fields
-- **Label** - Form labels
-- **Select** - Dropdown select menus
-- **Textarea** - Multi-line text input
-- **Checkbox** - Checkbox inputs
-- **Switch** - Toggle switches
-
-#### Layout Components
-
-- **Card** - Content containers with header and content sections
-- **Tabs** - Tabbed interface components
-
-#### Feedback Components
-
-- **Sonner** - Toast notifications (replaces deprecated Toast)
-
-### Theme Configuration
-
-The project includes a powerful theme configuration system:
-
-```tsx
-import { useTheme } from '@/hooks/use-theme';
-
-function MyComponent() {
-  const { config, setTheme, setColorScheme } = useTheme();
-
-  return (
-    <div>
-      <button onClick={() => setTheme('dark')}>Dark Mode</button>
-      <button onClick={() => setColorScheme('blue')}>Blue Theme</button>
-    </div>
-  );
-}
-```
-
-### Customization
-
-Components can be customized by:
-
-- Modifying CSS variables in `src/index.css`
-- Editing component files directly in `src/components/ui/`
-- Using the theme configuration panel
-- Creating custom variants and styles
-
-For detailed configuration options, see [CONFIGURATION.md](./CONFIGURATION.md).
-
 ## 🧪 Testing the Setup
 
 Try these commands to verify everything is working:
@@ -407,8 +466,10 @@ The debug guide includes:
 - **🚀 Production Ready** - Industry best practices
 - **⚡ Simple & Clean** - Minimal boilerplate with maximum functionality
 - **🎨 Modern Styling** - Tailwind CSS for rapid UI development
+- **🔐 Complete Auth System** - Login, signup, and user management
+- **📊 User Dashboard** - Full CRUD operations with analytics
 
-This setup ensures high-quality, maintainable React code with excellent developer experience!
+This setup ensures high-quality, maintainable React code with excellent developer experience and a complete authentication system!
 
 ## 📚 Additional Resources
 
