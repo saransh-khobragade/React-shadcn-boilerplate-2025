@@ -13,19 +13,3 @@ yarn dev
 
 # Build for production
 yarn build
-
-# Run linting
-yarn lint
-
-# Fix linting issues
-yarn lint:fix
-
-# Format code
-yarn format
-
-# Check formatting
-yarn format:check
-
-# Type checking
-yarn type-check
-```
