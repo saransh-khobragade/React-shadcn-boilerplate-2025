@@ -1,6 +1,6 @@
-# React + TypeScript + Vite + Tailwind CSS + ESLint + Prettier + shadcn/ui
+# React + TypeScript + Vite
 
-A production-ready React boilerplate with strict TypeScript configuration, comprehensive ESLint rules, Prettier formatting, modern tooling, shadcn/ui components, and a complete authentication and user management system.
+A production-ready React boilerplate with strict TypeScript configuration, 
 
 ## 🚀 Quick Start
 
